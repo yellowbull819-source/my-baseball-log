@@ -1,12 +1,13 @@
 :root {
-  --paper: #fffdf7;
-  --ink: #2d2a26;
-  --muted: #76716b;
-  --line: #e5ddd0;
+  --paper: #f4f5f7;
+  --ink: #172033;
+  --muted: #667085;
+  --line: #d8dee8;
   --panel: #ffffff;
-  --pink: #e31b23;
-  --pink-dark: #a30d16;
-  --shadow: 0 18px 50px rgba(63, 44, 29, 0.14);
+  --navy: #172b4d;
+  --navy-deep: #10203b;
+  --tigers-yellow: #f7c600;
+  --shadow: 0 18px 50px rgba(16, 32, 59, 0.12);
   font-family:
     "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", system-ui, sans-serif;
 }
@@ -20,8 +21,15 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    linear-gradient(135deg, rgba(227, 27, 35, 0.12), transparent 34%),
-    linear-gradient(315deg, rgba(255, 209, 102, 0.2), transparent 38%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(23, 43, 77, 0.045) 0,
+      rgba(23, 43, 77, 0.045) 2px,
+      transparent 2px,
+      transparent 18px
+    ),
+    radial-gradient(ellipse at 8% 4%, rgba(247, 198, 0, 0.16), transparent 32%),
+    linear-gradient(135deg, rgba(23, 43, 77, 0.08), transparent 40%),
     var(--paper);
 }
 
@@ -48,9 +56,10 @@ button {
 .editor-panel,
 .history-panel {
   min-width: 0;
-  border: 1px solid rgba(229, 221, 208, 0.9);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--tigers-yellow);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.94);
   box-shadow: var(--shadow);
 }
 
@@ -84,7 +93,7 @@ button {
 
 .eyebrow {
   margin: 0 0 6px;
-  color: var(--pink-dark);
+  color: var(--navy);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0;
@@ -98,7 +107,10 @@ h2 {
 }
 
 h1 {
-  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+  color: var(--navy-deep);
+  letter-spacing: 0;
+  white-space: nowrap;
 }
 
 h2 {
@@ -114,7 +126,7 @@ h2 {
   min-height: 42px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: #fff8e7;
+  background: #fff8d9;
   color: var(--muted);
   font-size: 0.86rem;
   font-weight: 700;
@@ -174,8 +186,8 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: var(--pink);
-  box-shadow: 0 0 0 4px rgba(244, 127, 162, 0.16);
+  border-color: var(--navy);
+  box-shadow: 0 0 0 4px rgba(247, 198, 0, 0.22);
   background: #fff;
 }
 
@@ -216,7 +228,7 @@ textarea:focus {
 
 .result-option:hover {
   transform: translateY(-1px);
-  border-color: rgba(244, 127, 162, 0.6);
+  border-color: var(--navy);
 }
 
 .result-option input {
@@ -227,10 +239,15 @@ textarea:focus {
 }
 
 .result-option:has(input:checked) {
-  border-color: var(--pink);
-  background: #fff1f6;
-  color: var(--pink-dark);
-  box-shadow: 0 10px 22px rgba(244, 127, 162, 0.18);
+  border-color: var(--navy-deep);
+  background: #fff8d9;
+  color: var(--navy-deep);
+  box-shadow: inset 0 -4px 0 var(--tigers-yellow), 0 8px 18px rgba(16, 32, 59, 0.12);
+}
+
+.result-option:has(input:focus-visible) {
+  outline: 3px solid var(--navy);
+  outline-offset: 3px;
 }
 
 .result-icon {
@@ -268,14 +285,15 @@ textarea:focus {
 }
 
 .primary-button {
-  background: var(--pink);
+  background: var(--navy);
   color: white;
-  box-shadow: 0 12px 24px rgba(205, 71, 114, 0.22);
+  box-shadow: 0 8px 18px rgba(16, 32, 59, 0.2);
 }
 
 .primary-button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(205, 71, 114, 0.28);
+  background: #243e68;
+  box-shadow: 0 11px 22px rgba(16, 32, 59, 0.25);
 }
 
 .ghost-button,
@@ -287,7 +305,8 @@ textarea:focus {
 
 .ghost-button:hover,
 .entry-actions button:hover {
-  border-color: var(--pink);
+  border-color: var(--navy);
+  background: #fff8d9;
 }
 
 .summary-row {
@@ -303,7 +322,7 @@ textarea:focus {
   min-height: 34px;
   border-radius: 999px;
   border: 1px solid var(--line);
-  background: #fffefb;
+  background: #fff8d9;
   padding: 0 11px;
   color: var(--muted);
   font-size: 0.84rem;
@@ -333,9 +352,9 @@ textarea:focus {
 .empty-state {
   display: grid;
   gap: 6px;
-  border: 1px dashed #dccfbd;
-  border-radius: 8px;
-  background: rgba(255, 248, 231, 0.62);
+  border: 1px dashed #d4b849;
+  border-radius: 10px;
+  background: #fffbed;
   padding: 20px;
   color: var(--muted);
 }
@@ -356,7 +375,8 @@ textarea:focus {
   display: grid;
   gap: 12px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-left: 4px solid var(--navy);
+  border-radius: 10px;
   background: #fffefb;
   padding: 16px;
 }
@@ -380,8 +400,8 @@ textarea:focus {
   min-height: 32px;
   border-radius: 999px;
   padding: 0 10px;
-  background: #fff1f6;
-  color: var(--pink-dark);
+  background: #fff4bd;
+  color: var(--navy-deep);
   font-size: 0.82rem;
   font-weight: 900;
 }
