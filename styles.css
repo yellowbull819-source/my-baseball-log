@@ -4,12 +4,8 @@
   --muted: #76716b;
   --line: #e5ddd0;
   --panel: #ffffff;
-  --pink: #f47fa2;
-  --pink-dark: #cd4772;
-  --mint: #79c7b3;
-  --yellow: #ffd166;
-  --sky: #6aa9ff;
-  --lavender: #b28dff;
+  --pink: #e31b23;
+  --pink-dark: #a30d16;
   --shadow: 0 18px 50px rgba(63, 44, 29, 0.14);
   font-family:
     "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", system-ui, sans-serif;
@@ -24,8 +20,8 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    linear-gradient(135deg, rgba(244, 127, 162, 0.16), transparent 34%),
-    linear-gradient(315deg, rgba(121, 199, 179, 0.18), transparent 38%),
+    linear-gradient(135deg, rgba(227, 27, 35, 0.12), transparent 34%),
+    linear-gradient(315deg, rgba(255, 209, 102, 0.2), transparent 38%),
     var(--paper);
 }
 
@@ -139,7 +135,7 @@ h2 {
 }
 
 .field-label,
-.mood-field legend {
+.result-field legend {
   color: var(--ink);
   font-size: 0.9rem;
   font-weight: 800;
@@ -183,21 +179,21 @@ textarea:focus {
   background: #fff;
 }
 
-.mood-field {
+.result-field {
   min-width: 0;
   margin: 4px 0 0;
   padding: 0;
   border: 0;
 }
 
-.mood-grid {
+.result-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 8px;
   margin-top: 10px;
 }
 
-.mood-option {
+.result-option {
   position: relative;
   display: grid;
   min-height: 86px;
@@ -218,26 +214,26 @@ textarea:focus {
     color 160ms ease;
 }
 
-.mood-option:hover {
+.result-option:hover {
   transform: translateY(-1px);
   border-color: rgba(244, 127, 162, 0.6);
 }
 
-.mood-option input {
+.result-option input {
   position: absolute;
   inset: 0;
   opacity: 0;
   cursor: pointer;
 }
 
-.mood-option:has(input:checked) {
+.result-option:has(input:checked) {
   border-color: var(--pink);
   background: #fff1f6;
   color: var(--pink-dark);
   box-shadow: 0 10px 22px rgba(244, 127, 162, 0.18);
 }
 
-.mood-face {
+.result-icon {
   font-size: 1.75rem;
   line-height: 1;
 }
@@ -298,87 +294,6 @@ textarea:focus {
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 18px;
-}
-
-.biorhythm {
-  display: grid;
-  gap: 10px;
-  margin-bottom: 18px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: linear-gradient(135deg, #fff8e7, #fffefb);
-  padding: 16px;
-}
-
-.biorhythm-label {
-  margin: 0 0 4px;
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 900;
-}
-
-.biorhythm strong {
-  display: block;
-  font-size: 1.12rem;
-  line-height: 1.35;
-}
-
-.rhythm-chart {
-  min-height: 180px;
-  overflow: hidden;
-  border: 1px solid rgba(229, 221, 208, 0.86);
-  border-radius: 8px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 248, 231, 0.42)),
-    #fffefb;
-}
-
-.rhythm-svg {
-  display: block;
-  width: 100%;
-  height: 180px;
-}
-
-.rhythm-grid line {
-  stroke: rgba(118, 113, 107, 0.22);
-  stroke-dasharray: 4 5;
-  stroke-width: 1;
-}
-
-.rhythm-area {
-  fill: url("#rhythm-area-gradient");
-}
-
-.rhythm-wave {
-  fill: none;
-  stroke: url("#rhythm-line-gradient");
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 5;
-  filter: drop-shadow(0 7px 10px rgba(205, 71, 114, 0.18));
-}
-
-.rhythm-point circle {
-  fill: #fffefb;
-  stroke: var(--pink);
-  stroke-width: 3;
-}
-
-.rhythm-point text {
-  font-size: 14px;
-}
-
-.rhythm-axis-label {
-  fill: var(--muted);
-  font-size: 10px;
-  font-weight: 800;
-}
-
-.biorhythm-detail {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.84rem;
-  line-height: 1.6;
 }
 
 .summary-chip {
@@ -458,7 +373,7 @@ textarea:focus {
   font-weight: 900;
 }
 
-.mood-badge {
+.result-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -529,11 +444,11 @@ textarea:focus {
     align-self: flex-start;
   }
 
-  .mood-grid {
+  .result-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .mood-option {
+  .result-option {
     min-height: 76px;
   }
 
